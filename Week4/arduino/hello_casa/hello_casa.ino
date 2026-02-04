@@ -50,7 +50,7 @@ uint8_t tensor_arena[kTensorArenaSize];
 const float kXrange = 2.f * 3.14159265359f;
 
 // This constant determines number of inferences to perform across range of x values defined above. 
-const int kInferencesPerCycle = 8000;
+const int kInferencesPerCycle = 300;
 
 // A counter to keep track of how many inferences we have performed.
 int inference_count = 0;
@@ -213,5 +213,7 @@ void loop() {
   // the total number per cycle
   inference_count += 1;
   if (inference_count >= kInferencesPerCycle) inference_count = 0;
+  
+  delay(50);
  
 }
